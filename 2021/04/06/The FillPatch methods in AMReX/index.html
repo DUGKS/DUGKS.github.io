@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/DUGKS/DUGKS.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/DUGKS/DUGKS.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/DUGKS/DUGKS.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/DUGKS/DUGKS.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/DUGKS/DUGKS.github.io/css/main.css">
+
+
+<link rel="stylesheet" href="/DUGKS/DUGKS.github.io/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/DUGKS/DUGKS.github.io/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="The FillPatch or FillCoarsePatch methods are defined in the header file AMReX_FillPatchUtil.H and are implemented in the AMReX_FillPatchUtil_I.H file. All the functionality is implemented by template">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The FillPatch methods in AMReX">
+<meta property="og:url" content="https://github.com/DUGKS/DUGKS.github.io/2021/04/06/The%20FillPatch%20methods%20in%20AMReX/index.html">
+<meta property="og:site_name" content="命由我作 福自己求">
+<meta property="og:description" content="The FillPatch or FillCoarsePatch methods are defined in the header file AMReX_FillPatchUtil.H and are implemented in the AMReX_FillPatchUtil_I.H file. All the functionality is implemented by template">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-06T13:15:27.912Z">
+<meta property="article:modified_time" content="2020-09-27T08:52:50.964Z">
+<meta property="article:tag" content="AMReX">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/DUGKS/DUGKS.github.io/2021/04/06/The%20FillPatch%20methods%20in%20AMReX/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>The FillPatch methods in AMReX | 命由我作 福自己求</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/DUGKS/DUGKS.github.io/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">命由我作 福自己求</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/DUGKS/DUGKS.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/DUGKS/DUGKS.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/DUGKS/DUGKS.github.io/2021/04/06/The%20FillPatch%20methods%20in%20AMReX/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/DUGKS/DUGKS.github.io/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="命由我作 福自己求">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          The FillPatch methods in AMReX
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-06 21:15:27" itemprop="dateCreated datePublished" datetime="2021-04-06T21:15:27+08:00">2021-04-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-27 16:52:50" itemprop="dateModified" datetime="2020-09-27T16:52:50+08:00">2020-09-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>The FillPatch or FillCoarsePatch methods are defined in the header file AMReX_FillPatchUtil.H and are implemented in the AMReX_FillPatchUtil_I.H file. All the functionality is implemented by template functions.</p>
+<p>The FillPatch method consists of two primary functions : FillPatchSingleLevel and FillPatchTwoLevels.</p>
+<p>FillPatchSingleLevel fills a MultiFab and its ghost region at a single level of refinement. The target MultiFab can be filled by a linear interpolation between two MultiFabs at two different moments.<br>A simplified version of FillPatchSingleLevel is :</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> MF, <span class="keyword">typename</span> BC&gt;</span><br><span class="line">EnableIf_t&lt;IsFabArray&lt;MF&gt;::value&gt;</span><br><span class="line"><span class="built_in">FillPatchSingleLevel</span> (MF&amp; mf, IntVect <span class="keyword">const</span>&amp; nghost, Real time,</span><br><span class="line">                      <span class="keyword">const</span> Vector&lt;MF*&gt;&amp; smf, <span class="keyword">const</span> Vector&lt;Real&gt;&amp; stime,</span><br><span class="line">                      <span class="keyword">int</span> scomp, <span class="keyword">int</span> dcomp, <span class="keyword">int</span> ncomp,</span><br><span class="line">                      <span class="keyword">const</span> Geometry&amp; geom,</span><br><span class="line">                      BC&amp; physbcf, <span class="keyword">int</span> bcfcomp)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> (smf.<span class="built_in">size</span>() == <span class="number">1</span>) <span class="comment">//no temporal interpolation</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (&amp;mf == smf[<span class="number">0</span>] <span class="keyword">and</span> scomp == dcomp) <span class="comment">//same MultiFab, identical starting index</span></span><br><span class="line">        &#123;</span><br><span class="line">            mf.<span class="built_in">FillBoundary</span>(<span class="comment">/*Fill the interior boundary, including periodic boundary  </span></span><br><span class="line"><span class="comment">            and interior boundary among MultiFabs at different processes*/</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> </span><br><span class="line">        &#123;</span><br><span class="line">            mf.<span class="built_in">ParallelCopy</span>(<span class="comment">/*parallel copy a MultiFab, fill the interior boundary*/</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (smf.<span class="built_in">size</span>() == <span class="number">2</span>) <span class="comment">//temporal interpolation</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//a, b is interpolation coefficients</span></span><br><span class="line">		<span class="built_in">value</span>(mf) = a*<span class="built_in">value</span>(smf[<span class="number">0</span>]) + b*<span class="built_in">value</span>(smf[<span class="number">1</span>]);</span><br><span class="line">		<span class="comment">//then</span></span><br><span class="line">		mf.<span class="built_in">FillBoundary</span>(...) <span class="keyword">or</span> mf.<span class="built_in">ParallelCopy</span>(...)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;<span class="string">&quot;error&quot;</span>&#125;</span><br><span class="line">	<span class="comment">//fill other mathematical boundaries</span></span><br><span class="line">	<span class="built_in">physbcf</span>(mf, dcomp, ncomp, nghost, time, bcfcomp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>where the meaning of function parameters are<br><code>mf</code> : the MultiFab to be filled;<br><code>nghost</code> : the ghost cell of <code>mf</code>;<br><code>time</code> : the current time used for interpolation;<br><code>smf</code> : vector of <code>MultiFab*</code>, holding the MultiFabs at different times, maximum elements is two;<br><code>stime</code> : the time info for each <code>MultiFab</code> stored in <code>smf</code>;<br><code>scomp</code> : the starting index for the component of <code>MultiFab</code> in <code>smf</code>, s stands for source;<br><code>dcomp</code> : the starting index for the component <code>mf</code>, d stands for destination;<br><code>ncomp</code> : the total number of the components to be filled;<br><code>geom</code>  : the <code>Geometry</code> data for <code>mf</code>;<br><code>physbcf</code> : the callable object to fill the mathematical boundary of <code>mf</code>;<br><code>bcfcomp</code> : the start index for the BCRec defined in <code>physbcf</code>; </p>
+<p>FillPatchTwoLevels delegates all its work to a function named FillPatchTwoLevels_doit, who completes the main task of</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> MF, <span class="keyword">typename</span> BC, <span class="keyword">typename</span> Interp, <span class="keyword">typename</span> PreInterpHook, <span class="keyword">typename</span> PostInterpHook&gt;</span><br><span class="line">EnableIf_t&lt;IsFabArray&lt;MF&gt;::value&gt;</span><br><span class="line"><span class="built_in">FillPatchTwoLevels_doit</span> (MF&amp; mf, IntVect <span class="keyword">const</span>&amp; nghost, Real time,</span><br><span class="line">    <span class="keyword">const</span> Vector&lt;MF*&gt;&amp; cmf, <span class="keyword">const</span> Vector&lt;Real&gt;&amp; ct,</span><br><span class="line">    <span class="keyword">const</span> Vector&lt;MF*&gt;&amp; fmf, <span class="keyword">const</span> Vector&lt;Real&gt;&amp; ft,</span><br><span class="line">    <span class="keyword">int</span> scomp, <span class="keyword">int</span> dcomp, <span class="keyword">int</span> ncomp,</span><br><span class="line">    <span class="keyword">const</span> Geometry&amp; cgeom, <span class="keyword">const</span> Geometry&amp; fgeom,</span><br><span class="line">    BC&amp; cbc, <span class="keyword">int</span> cbccomp,</span><br><span class="line">                         BC&amp; fbc, <span class="keyword">int</span> fbccomp,</span><br><span class="line">    <span class="keyword">const</span> IntVect&amp; ratio,</span><br><span class="line">    Interp* mapper,</span><br><span class="line">                         <span class="keyword">const</span> Vector&lt;BCRec&gt;&amp; bcs, <span class="keyword">int</span> bcscomp,</span><br><span class="line">                         <span class="keyword">const</span> PreInterpHook&amp; pre_interp,</span><br><span class="line">                         <span class="keyword">const</span> PostInterpHook&amp; post_interp,</span><br><span class="line">                         EB2::IndexSpace <span class="keyword">const</span>* index_space)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//1. make a copy of the MultiFabs on the coarse level;</span></span><br><span class="line">	<span class="comment">//2. fill the boundary of the copied MultiFabs using FillPatchSingleLevel(mf_coarse);</span></span><br><span class="line">	<span class="comment">//3. fill the coarse-fine boundary of mf from the copied MultiFabs via interpolation;</span></span><br><span class="line">	<span class="comment">//4. fill the boundary of mf by FillPatchSingleLevel(mf);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>and the parameters stand for</p>
+<p><code>mf</code> : the MultiFab to be filled;<br><code>nghost</code> : the ghost cell of <code>mf</code>;<br><code>time</code> : the current time used for interpolation;<br><code>cmf</code>  : the MultiFabs used to fill the coarse-fine boundaries on the coarse level;<br><code>ct</code>   : the time info for the MultiFabs in <code>cmf</code><br><code>fmf</code>  : the MultiFabs used to fill the interior boundaries on the current level;<br><code>ft</code>   : the time info for the MultiFabs in <code>fmf</code>;<br><code>scomp</code> : the starting index for the component of <code>MultiFab</code> in <code>smf</code> and <code>cmf</code>, s stands for source;<br><code>dcomp</code> : the starting index for the component <code>mf</code>, d stands for destination;<br><code>ncomp</code> : the total number of the components to be filled;<br><code>cgeom</code> : the <code>Geometry</code> info for the coarse level;<br><code>fgeom</code> : the <code>Geometry</code> info for the current level;<br><code>cbc</code>   : the callable object to fill the boundary of <code>cmf</code> on the coarse level;<br><code>cbccomp</code> : starting index for the boundary condition records in <code>cbc</code>;<br><code>fbc</code> : the callable object to fill the boundary of <code>smf</code> on the current level;<br><code>fbccomp</code> : starting index for the boundary condition records in <code>fbc</code>;<br><code>ratio</code> : refinement ratio of coarse level to current level;<br><code>mapper</code> : Interpolation method, defined in AMReX_Interpolater.H;<br><code>bcs</code> : the boundary condition records for <code>mf</code>;<br><code>bcscomp</code> : starting index for the boundary condition records in <code>fbc</code>.</p>
+<p>Generally, a FillPatch method should preserve the following pattern</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FillPatchScalar</span><span class="params">(<span class="comment">/*parameters*/</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lev == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">FillPatchSingleLevel</span>(...);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">FillPatchTwoLevels</span>(...)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;.</span><br></pre></td></tr></table></figure>
+<p>In a word, FillPatch method fills the coarse-fine boundary by interpolating the data on the coarse level, the interior boundary by copy and the physical boundary by user-provided PhysBCFunct object.</p>
+<p>The FillCoarsePatch method should only be invoked when creating a new level. The main work is done by a template function named InterpFromCoarseLevel, whose definition is </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> MF, <span class="keyword">typename</span> BC, <span class="keyword">typename</span> Interp, <span class="keyword">typename</span> PreInterpHook, <span class="keyword">typename</span> PostInterpHook&gt;</span><br><span class="line">EnableIf_t&lt;IsFabArray&lt;MF&gt;::value&gt;</span><br><span class="line"><span class="built_in">InterpFromCoarseLevel</span> (MF&amp; mf, IntVect <span class="keyword">const</span>&amp; nghost, Real time,</span><br><span class="line">                       <span class="keyword">const</span> MF&amp; cmf, <span class="keyword">int</span> scomp, <span class="keyword">int</span> dcomp, <span class="keyword">int</span> ncomp,</span><br><span class="line">                       <span class="keyword">const</span> Geometry&amp; cgeom, <span class="keyword">const</span> Geometry&amp; fgeom,</span><br><span class="line">                       BC&amp; cbc, <span class="keyword">int</span> cbccomp,</span><br><span class="line">                       BC&amp; fbc, <span class="keyword">int</span> fbccomp,</span><br><span class="line">                       <span class="keyword">const</span> IntVect&amp; ratio,</span><br><span class="line">                       Interp* mapper,</span><br><span class="line">                       <span class="keyword">const</span> Vector&lt;BCRec&gt;&amp; bcs, <span class="keyword">int</span> bcscomp,</span><br><span class="line">                       <span class="keyword">const</span> PreInterpHook&amp; pre_interp,</span><br><span class="line">                       <span class="keyword">const</span> PostInterpHook&amp; post_interp)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//1. make a copy of the MultiFabs on the coarse level;</span></span><br><span class="line">	<span class="comment">//2. fill the periodic boundary using a member function named MultiFab::copy and the  </span></span><br><span class="line">	<span class="comment">//   mathematical boundary using the user-provided PhysBCFunct object cbc  </span></span><br><span class="line">	<span class="comment">//3. fill mf from the copied MultiFabs via interpolation;</span></span><br><span class="line">	<span class="comment">//4. fill the boundary of mf by the user-provided PhysBCFunct object fbc  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The meaning of the parameters presented here is identical to the parameters appeared in FillPatchTwoLevels. FillCoarsePatch always fill the whole region from a coarse level.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/DUGKS/DUGKS.github.io/tags/AMReX/" rel="tag"># AMReX</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/DUGKS/DUGKS.github.io/2021/04/06/OpenFOAM%E6%B3%A8%E5%86%8C%E6%9C%BA%E5%88%B6/" rel="prev" title="OpenFOAM输入输出中的注册机制">
+      <i class="fa fa-chevron-left"></i> OpenFOAM输入输出中的注册机制
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/DUGKS/DUGKS.github.io/2021/04/06/The%20implementation%20of%20physical%20boundary%20condtion%20in%20AMReX/" rel="next" title="The implementation of physical boundary condition in AMReX">
+      The implementation of physical boundary condition in AMReX <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/DUGKS/DUGKS.github.io/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/DUGKS/DUGKS.github.io/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/DUGKS/DUGKS.github.io/lib/anime.min.js"></script>
+  <script src="/DUGKS/DUGKS.github.io/lib/velocity/velocity.min.js"></script>
+  <script src="/DUGKS/DUGKS.github.io/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/DUGKS/DUGKS.github.io/js/utils.js"></script>
+
+<script src="/DUGKS/DUGKS.github.io/js/motion.js"></script>
+
+
+<script src="/DUGKS/DUGKS.github.io/js/schemes/muse.js"></script>
+
+
+<script src="/DUGKS/DUGKS.github.io/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
