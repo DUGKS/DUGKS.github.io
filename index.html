@@ -167,10 +167,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-01-22 10:42:46 / 修改时间：20:45:23" itemprop="dateCreated datePublished" datetime="2021-01-22T10:42:46+08:00">2021-01-22</time>
+              <time title="创建时间：2021-01-22 10:42:46" itemprop="dateCreated datePublished" datetime="2021-01-22T10:42:46+08:00">2021-01-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-07 10:22:54" itemprop="dateModified" datetime="2021-04-07T10:22:54+08:00">2021-04-07</time>
+              </span>
 
           
 
@@ -183,10 +189,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>To find the lines in TheFile that starts with the word power followed by some amount of whitespace and an equal sign, and to replace whatever comes after that equal sign with something:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -E &#39;s&#x2F;^(power[[:blank:]]*&#x3D;[[:blank:]]*).*&#x2F;\1something&#x2F;&#39; </span><br></pre></td></tr></table></figure><br>TheFile <code>[[:blank:]]*</code> matches zero or more spaces or tabs. This preserves the whitespace before and after the <code>=</code>. The <code>\1</code> in the replacement text will insert the part of the string that is matched by the first parenthesis.</p>
-<p>To make the change in place with e.g. GNU sed, add the -i flag, otherwise, redirect the output to a new file.</p>
-<p>Testing it:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ cat TheFile</span><br><span class="line">power                 &#x3D; 1</span><br><span class="line">power123              &#x3D; 1</span><br><span class="line">power  123            &#x3D; 1</span><br><span class="line">power                 &#x3D;</span><br><span class="line">power                 &#x3D;                 112</span><br><span class="line"></span><br><span class="line">$ sed -E &#39;s&#x2F;^(power[[:blank:]]*&#x3D;[[:blank:]]*).*&#x2F;\1something&#x2F;&#39; TheFile</span><br><span class="line">power                 &#x3D; something</span><br><span class="line">power123              &#x3D; 1</span><br><span class="line">power  123            &#x3D; 1</span><br><span class="line">power                 &#x3D;something</span><br><span class="line">power                 &#x3D;                 something</span><br></pre></td></tr></table></figure></p>
-
+          <p>To find the lines in TheFile that starts with the word power followed by some amount of whitespace<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/22/sed-replace-value-after-equal-symbol/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -228,10 +239,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-01-11 10:18:16 / 修改时间：10:27:59" itemprop="dateCreated datePublished" datetime="2021-01-11T10:18:16+08:00">2021-01-11</time>
+              <time title="创建时间：2021-01-11 10:18:16" itemprop="dateCreated datePublished" datetime="2021-01-11T10:18:16+08:00">2021-01-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-07 10:16:39" itemprop="dateModified" datetime="2021-04-07T10:16:39+08:00">2021-04-07</time>
+              </span>
 
           
 
@@ -245,11 +262,15 @@
 
       
           <ul>
-<li>Change all folders to 755 and all files to 644<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find . -type d -exec chmod 0755 &#123;&#125; \;</span><br><span class="line">find . -type f -exec chmod 0644 &#123;&#125; \;</span><br></pre></td></tr></table></figure></li>
-<li>ImageMagick 生成gif<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convert -delay 0 &#96;ls -tr *.png&#96; -loop 0 animated.gif</span><br></pre></td></tr></table></figure></li>
-<li>Git查看分支图<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --decorate --oneline --simplify-by-decoration --all</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+<li>Change all folders to 755 and all files to 644<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find . -type d -exec chmod 0755 &#123;&#125; \;</span><br><span class="line">find . -type f -exec chmod 0644 &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/11/The-Common-Used-Commands/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -365,7 +386,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-04 09:43:57" itemprop="dateModified" datetime="2019-10-04T09:43:57+08:00">2019-10-04</time>
+                <time title="修改时间：2021-04-07 10:18:54" itemprop="dateModified" datetime="2021-04-07T10:18:54+08:00">2021-04-07</time>
               </span>
 
           
@@ -379,22 +400,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>新手刚开始使用OpenFOAM的时候，一般都会对输入输出系统感到费解，为什么定义一个物理量，要这么复杂。</p>
-<p>以icoFoam中压力p的构造为例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">volScalarField p</span><br><span class="line"> (</span><br><span class="line">     IOobject</span><br><span class="line">     (</span><br><span class="line">         <span class="string">&quot;p&quot;</span>,</span><br><span class="line">         runTime.<span class="built_in">timeName</span>(),</span><br><span class="line">         mesh,</span><br><span class="line">         IOobject::MUST_READ,</span><br><span class="line">         IOobject::AUTO_WRITE</span><br><span class="line">     ),</span><br><span class="line">     mesh</span><br><span class="line"> );</span><br></pre></td></tr></table></figure><br> p的构造用到了一个临时的<code>IOobject</code>和mesh，其中mesh定义在createMesh.H头文件中，类型为<code>fvMesh</code>, mesh的构造也用到了<code>IOobject</code>。</p>
-<p> 这里我们简略介绍下<code>IOobject</code>, <code>regIOobject</code>以及<code>ObjectRegistry</code>三个类的作用。这三个类的源码位于src/OpenFOAM/db/文件夹中，db是database的缩写，表明这个文件夹下的类都和OpenFOAM数据库的构建有关。</p>
-<h2 id="IOobject"><a href="#IOobject" class="headerlink" title="IOobject"></a>IOobject</h2><p><code>IOobject</code>是一个基类，定义了几个枚举类，比较常用的有<code>readOption</code>和<code>writeOption</code>：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">readOption</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    MUST_READ,</span><br><span class="line">    MUST_READ_IF_MODIFIED,</span><br><span class="line">    READ_IF_PRESENT,</span><br><span class="line">    NO_READ</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">writeOption</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    AUTO_WRITE = <span class="number">0</span>,</span><br><span class="line">    NO_WRITE = <span class="number">1</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><br>这两个枚举类用来指定所要构建对象的输入输出方式，本文开始压力p的构造，就用到了MUST_READ和AUTO_WRITE。</p>
-<p><code>IOobject</code>中比较重要的几个私有变量有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">word name_; &#x2F;&#x2F;构造对象的名称，如 &quot;p&quot;</span><br><span class="line">const objectRegistry&amp; db_; &#x2F;&#x2F;对象注册处</span><br><span class="line">readOption rOpt_; &#x2F;&#x2F;读入状态</span><br><span class="line">writeOption wOpt_; &#x2F;&#x2F;写出状态</span><br><span class="line">bool registerObject_; &#x2F;&#x2F;是否在构造时注册</span><br></pre></td></tr></table></figure><br>这里有一个<code>objectRegistry</code>的引用，在后续对象构造的过程中，非常重要。</p>
-<p><code>IOobject</code>的构造函数通过initializer list初始化其成员变量，函数体中包含一些debug的功能代码。</p>
-<h2 id="regIOobject"><a href="#regIOobject" class="headerlink" title="regIOobject"></a>regIOobject</h2><p><code>regIOobject</code>派生自<code>IOobject</code>, 它定义了两个比较重要的私有变量<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> registered_;  <span class="comment">//是否注册过</span></span><br><span class="line"><span class="keyword">bool</span> ownedByRegistry_; <span class="comment">//是否所属某个注册处</span></span><br></pre></td></tr></table></figure><br>两个经常用到的成员函数<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">checkIn</span><span class="params">()</span></span>; <span class="comment">//注册</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">checkOut</span><span class="params">()</span></span>; <span class="comment">//注销</span></span><br></pre></td></tr></table></figure><br>简单来说，<code>regIOobject</code>是<code>IOobject</code>注册到某一个<code>objectRegistry</code>的具体实现。</p>
-<p>如果把<code>IOobject</code>看作学生，<code>objectRegistry</code>看作学生处，那么<code>regIOobject</code>就是帮助学生在学生处注册的工作人员。</p>
-<p><code>regIOobject</code>的常用的构造函数<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Foam::regIOobject::<span class="built_in">regIOobject</span>(<span class="keyword">const</span> IOobject&amp; io, <span class="keyword">const</span> <span class="keyword">bool</span> isTime)</span><br><span class="line">:</span><br><span class="line">    <span class="built_in">IOobject</span>(io),</span><br><span class="line">    <span class="built_in">registered_</span>(<span class="literal">false</span>),</span><br><span class="line">    <span class="built_in">ownedByRegistry_</span>(<span class="literal">false</span>),</span><br><span class="line">    <span class="built_in">watchIndices_</span>(),</span><br><span class="line">    eventNo_                <span class="comment">// Do not get event for top level Time database</span></span><br><span class="line">    (</span><br><span class="line">        isTime</span><br><span class="line">      ? <span class="number">0</span></span><br><span class="line">      : <span class="built_in">db</span>().<span class="built_in">getEvent</span>()</span><br><span class="line">    )</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Register with objectRegistry if requested</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">registerObject</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">checkIn</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>首先用<code>IOobject</code>的构造函数初始化基类部分，默认没有注册过，不属于任何一个注册处，然后通过<code>registerObject()</code>判断是否需要注册，如果需要就调用<code>checkIn()</code>注册对象。其中<code>registerObject()</code>继承自<code>IOobject</code>，返回<code>IOobject</code>中<code>registerObject_</code>的值。</p>
-<p>接下来我们看一看<code>checkIn()</code>具体做了什么，它的实现：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> Foam::regIOobject::<span class="built_in">checkIn</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (!registered_)</span><br><span class="line">    &#123;</span><br><span class="line">        registered_ = <span class="built_in">db</span>().<span class="built_in">checkIn</span>(*<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> registered_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>我们看到，具体的注册工作由<code>db().checkIn(*this)</code>来完成，其中<code>db()</code>继承自<code>IOobject</code>， 返回一个objectRegistry的引用，就是上文提到的<code>IOobject</code>中一个非常重要的私有变量，对象注册处db_。</p>
-<h2 id="objectRegistry"><a href="#objectRegistry" class="headerlink" title="objectRegistry"></a>objectRegistry</h2><p><code>objectRegistry</code>继承自<code>regIOobject</code>和<code>HashTable&lt;regIOobject*&gt;</code>，后者是一个由<code>regIOobject</code>的指针构成的哈希表，<code>HashTable</code>是一个模版类，默认key值为OpenFOAM中的<code>word</code>类型。</p>
-<p>上文说道checkIn()的工作，实际上是由<code>objectRegistry</code>中的<code>checkIn()</code>来完成的，它的具体实现如下<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> Foam::objectRegistry::<span class="built_in">checkIn</span>(regIOobject&amp; io) <span class="keyword">const</span></span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">const_cast</span>&lt;objectRegistry&amp;&gt;(*<span class="keyword">this</span>).<span class="built_in">insert</span>(io.<span class="built_in">name</span>(), &amp;io);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>忽略debug部分，这个函数在丢弃自身low-level const属性后，在哈希表中插入了key为io.name()，value为某个<code>regIOobject*</code>的对象， 这里io.name()调用的实际上是继承自<code>IOobject</code>的成员函数， 而insert继承自<code>HashTable&lt;regIOobject*&gt;</code>。</p>
-<p>现在就比较清晰了，我们来看看icoFoam中定义压力场p的时候，具体发生了什么。这里p用到的构造函数为<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">IOobject</span><br><span class="line">(</span><br><span class="line">    <span class="keyword">const</span> word&amp; name,</span><br><span class="line">    <span class="keyword">const</span> fileName&amp; instance,</span><br><span class="line">    <span class="keyword">const</span> objectRegistry&amp; registry,</span><br><span class="line">    readOption r=NO_READ,</span><br><span class="line">    writeOption w=NO_WRITE,</span><br><span class="line">    <span class="keyword">bool</span> registerObject=<span class="literal">true</span></span><br><span class="line">);</span><br><span class="line"><span class="built_in">GeometricField</span>(<span class="keyword">const</span> IOobject&amp;,<span class="keyword">const</span> Mesh&amp;);</span><br></pre></td></tr></table></figure><br>首先构造临时的<code>IOobject</code>对象，名字为”p”，文件名为”runTime.timeName()”，它会注册到”mesh”上面，这是一个fvMesh对象，必须通过读入初始化，自动写。GeometricField构造函数中的第二个参数Mesh来自于GeoMesh::Mesh,它是类模板GeoMesh的模版参数，对于压力场p来说，Mesh = fvMesh。</p>
-<p>这里实际用到的构造函数为<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">Type</span>, <span class="title">template</span>&lt;</span><span class="class"><span class="keyword">class</span>&gt;</span> <span class="class"><span class="keyword">class</span> <span class="title">PatchField</span>, <span class="keyword">class</span> <span class="title">GeoMesh</span>&gt;</span></span><br><span class="line">Foam::GeometricField&lt;Type, PatchField, GeoMesh&gt;::GeometricField</span><br><span class="line">(</span><br><span class="line">    <span class="keyword">const</span> IOobject&amp; io,</span><br><span class="line">    <span class="keyword">const</span> Mesh&amp; mesh</span><br><span class="line">)</span><br><span class="line">:</span><br><span class="line">    <span class="built_in">Internal</span>(io, mesh, dimless, <span class="literal">false</span>),</span><br><span class="line">    <span class="built_in">timeIndex_</span>(<span class="keyword">this</span>-&gt;<span class="built_in">time</span>().<span class="built_in">timeIndex</span>()),</span><br><span class="line">    <span class="built_in">field0Ptr_</span>(<span class="literal">nullptr</span>),</span><br><span class="line">    <span class="built_in">fieldPrevIterPtr_</span>(<span class="literal">nullptr</span>),</span><br><span class="line">    <span class="built_in">boundaryField_</span>(mesh.<span class="built_in">boundary</span>())</span><br><span class="line">&#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>上述构造函数中，<code>Internal(io, mesh, dimless, false)</code>的作用是初始化内部场， 这里<code>Internal</code>是<code>DimensionedField&lt;Type, GeoMesh&gt;</code>的一个别名，就压力p的构造而言，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Type &#x3D; Scalar, GeoMesh &#x3D; volMesh</span><br></pre></td></tr></table></figure><br>用到的构造函数为<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">Type</span>, <span class="keyword">class</span> <span class="title">GeoMesh</span>&gt;</span></span><br><span class="line">DimensionedField&lt;Type, GeoMesh&gt;::DimensionedField</span><br><span class="line">(</span><br><span class="line">    <span class="keyword">const</span> IOobject&amp; io,</span><br><span class="line">    <span class="keyword">const</span> Mesh&amp; mesh,</span><br><span class="line">    <span class="keyword">const</span> dimensionSet&amp; dims,</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">bool</span> checkIOFlags</span><br><span class="line">)</span><br><span class="line">:</span><br><span class="line">    <span class="built_in">regIOobject</span>(io),</span><br><span class="line">    Field&lt;Type&gt;(GeoMesh::<span class="built_in">size</span>(mesh)),</span><br><span class="line">    <span class="built_in">mesh_</span>(mesh),</span><br><span class="line">    <span class="built_in">dimensions_</span>(dims)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (checkIOFlags)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">readIfPresent</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>上述构造函数中有一句<code>regIOobject(io)</code>，将构造的压力场p注册到mesh上，至此完成了对象的注册过程。</p>
-<p>至于runTime.write()是如何调用这些注册对象统一写入文件，请参考<br><a target="_blank" rel="noopener" href="http://openfoamwiki.net/index.php/OpenFOAM_guide/objectRegistry">http://openfoamwiki.net/index.php/OpenFOAM_guide/objectRegistry</a><br>section 4.3</p>
-
+          <p>新手刚开始使用OpenFOAM的时候，一般都会对输入输出系统感到费解，为什么定义一个物理量，要这么复杂，这里简单解释一下OpenFOAM中的注册机制。<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/08/OpenFOAM%E6%B3%A8%E5%86%8C%E6%9C%BA%E5%88%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -512,7 +526,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-27 16:33:38" itemprop="dateModified" datetime="2020-09-27T16:33:38+08:00">2020-09-27</time>
+                <time title="修改时间：2021-04-07 10:17:19" itemprop="dateModified" datetime="2021-04-07T10:17:19+08:00">2021-04-07</time>
               </span>
 
           
@@ -526,80 +540,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>AMReX provides a callable template class PhysBCFunct for users conveniently defining different boundary methods. This class is declared in AMReX_PhysBCFunc.H and is implemented in AMReX_PhysBCFunct.cpp</p>
-<p>The implementation of PhysBCFunct is<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">F</span>&gt;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PhysBCFunct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="comment">//several constructors</span></span><br><span class="line">  <span class="built_in">PhysBCFunct</span>(...)&#123;...&#125;;</span><br><span class="line">  <span class="comment">//call operator</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">operator</span><span class="params">(...)</span> </span>&#123;...&#125;</span><br><span class="line">  <span class="comment">//three private members</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  Geometry      m_geom; <span class="comment">// Geometry data</span></span><br><span class="line">  Vector&lt;BCRec&gt; m_bcr; <span class="comment">//  boundary condition records</span></span><br><span class="line">  F             m_f;   <span class="comment">//  a callable object who does the dirty work</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><code>AMReX</code> provides three types of callable classes as the template argument for PhysBCFunct. The first is <code>BndryFuncArray</code>, which works on arrays. This version is mainly used in fortran-based codes. The second is <code>CpuBndryFuncFab</code>, which works on FArrayBox. This version is mainly used in cpp-based codes. The last one is <code>template &lt;class F&gt; class GpuBndryFuncFab</code>, which is a template class worked on GPU.<br>The implementation of the call operator in PhysBCFunct<Type> is<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> PhysBCFunct&lt;F&gt;::<span class="built_in"><span class="keyword">operator</span></span>() (MultiFab&amp; mf, <span class="keyword">int</span> icomp, <span class="keyword">int</span> ncomp, IntVect <span class="keyword">const</span>&amp; nghost,</span><br><span class="line">                                 Real time, <span class="keyword">int</span> bccomp)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//get the Domain of m_geom;</span></span><br><span class="line">    <span class="keyword">const</span> Box&amp; domain = m_geom.<span class="built_in">Domain</span>(); </span><br><span class="line"></span><br><span class="line">    <span class="comment">//create a new domain based upon the indexType of mf</span></span><br><span class="line">    Box gdomain = amrex::<span class="built_in">convert</span>(domain, mf.<span class="built_in">boxArray</span>().<span class="built_in">ixType</span>()); </span><br><span class="line"></span><br><span class="line">    <span class="comment">//grow the new domain to contain valid + periodic cells</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="comment">/*direction is periodic*/</span>)</span><br><span class="line">    gdomain.<span class="built_in">grow</span>(<span class="comment">/*direction*/</span>, nghost);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//iterate on mf</span></span><br><span class="line">    <span class="keyword">for</span> (MFIter <span class="built_in">mfi</span>(mf); mfi.<span class="built_in">isValid</span>(); ++mfi)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//return the box on which mf is defined</span></span><br><span class="line">        <span class="keyword">const</span> Box&amp; bx = mfi.<span class="built_in">fabbox</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//if the grown domain doesn&#x27;t cover the box, which means  </span></span><br><span class="line">        <span class="comment">//there are cells outside the gdomain</span></span><br><span class="line">        <span class="keyword">if</span> (!gdomain.<span class="built_in">contains</span>(bx))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//set the boundary condition records of bx</span></span><br><span class="line">            amrex::<span class="built_in">setBC</span>(...);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//fill the uncovered cells</span></span><br><span class="line">            <span class="built_in">m_f</span>(...);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>The implementation of <code>BndryFuncArray</code> has a brief form of<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BndryFuncArray</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//constructors</span></span><br><span class="line">    <span class="built_in">BndryFuncArray</span> (...) <span class="keyword">noexcept</span> &#123;...&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">operator</span><span class="params">()</span> <span class="params">(<span class="comment">/*parameters*/</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    BndryFuncDefault   m_func   = <span class="literal">nullptr</span>;</span><br><span class="line">    BndryFunc3DDefault m_func3D = <span class="literal">nullptr</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><br>and the call operator is coded as<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BndryFuncArray::operator</span> <span class="params">()</span> <span class="params">(<span class="comment">/*parameters*/</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//defining a few variables</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="comment">/*loop over components*/</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(m_func != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="built_in">m_func</span>(...);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="built_in">m_func3D</span>(...);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><code>BndryFuncArray</code> provides two function pointers, m_func and m_func3D, as the interfaces for filling the uncovered cells. It is the users responsibility to provide the proper functioning modules. A trivial example can be found in <code>/AMReX/amrex/Tutorials/Amr/Advection_AmrCore/Source/bc_fill_nd.F90</code>.</p>
-<p>The implementation of <code>CpuBndryFuncFab</code> has a definition of<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CpuBndryFuncFab</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//constructors</span></span><br><span class="line">    <span class="built_in">CpuBndryFuncFab</span> () = <span class="keyword">default</span>;</span><br><span class="line">    <span class="built_in">CpuBndryFuncFab</span> (UserFillBox a_f) : <span class="built_in">f_user</span>(a_f) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">operator</span><span class="params">()</span> <span class="params">(<span class="comment">/*parameters*/</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    UserFillBox f_user = <span class="literal">nullptr</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><br>In the implementation of call operator, <code>CpuBndryFuncFab</code> delegates the work of filling the uncovered cells to some built-in functions, which are mainly defined in <code>AMReX_FILCC</code> series header files. User-defined function is needed for exterior boundary conditions, i.e., when the boundary condition record is set to <code>BCType::ext_dir</code>.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/08/%E7%90%90%E7%A2%8E%E7%9A%84%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="命由我作 福自己求">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/08/%E7%90%90%E7%A2%8E%E7%9A%84%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">琐碎的命令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-12-08 14:14:24" itemprop="dateCreated datePublished" datetime="2020-12-08T14:14:24+08:00">2020-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-15 16:33:59" itemprop="dateModified" datetime="2021-02-15T16:33:59+08:00">2021-02-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li>ImageMagick 生成gif<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convert -delay 0 &#96;ls -tr *.png&#96; -loop 0 animated.gif</span><br></pre></td></tr></table></figure></li>
-<li>Git查看分支图<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --decorate --oneline --simplify-by-decoration --all</span><br></pre></td></tr></table></figure>
-+Linux改变文件权限<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find . -type d -exec chmod 0755 &#123;&#125; \;</span><br><span class="line">find . -type f -exec chmod 0644 &#123;&#125; \;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+          <p>AMReX provides a callable template class PhysBCFunct for users conveniently defining different boundary methods. This class is declared in AMReX_PhysBCFunc.H and is implemented in AMReX_PhysBCFunct.cpp<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/08/The%20implementation%20of%20physical%20boundary%20condtion%20in%20AMReX/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -829,11 +778,80 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/21/github-pages-hexo-%E9%85%8D%E7%BD%AE%E4%B8%AA%E4%BA%BAblog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="命由我作 福自己求">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/11/21/github-pages-hexo-%E9%85%8D%E7%BD%AE%E4%B8%AA%E4%BA%BAblog/" class="post-title-link" itemprop="url">github + hexo 配置个人blog</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-21 18:06:53" itemprop="dateCreated datePublished" datetime="2017-11-21T18:06:53+08:00">2017-11-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-18 09:50:09" itemprop="dateModified" datetime="2019-09-18T09:50:09+08:00">2019-09-18</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>参考页面：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">https://zhuanlan.zhihu.com/p/26625249</a><br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/11/21/github-pages-hexo-%E9%85%8D%E7%BD%AE%E4%B8%AA%E4%BA%BAblog/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -898,7 +916,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
