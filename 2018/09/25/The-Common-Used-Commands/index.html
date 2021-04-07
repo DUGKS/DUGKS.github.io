@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="以Python-3.8.7为例，介绍其在usr&#x2F;local&#x2F;下的安装过程。">
+  <meta name="description" content="Change all folders to 755 and all files to 64412find . -type d -exec chmod 0755 &amp;#123;&amp;#125; \;find . -type f -exec chmod 0644 &amp;#123;&amp;#125; \;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python安装与配置">
-<meta property="og:url" content="http://yoursite.com/2021/01/02/Python%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="The-Common-Used-Commands">
+<meta property="og:url" content="http://yoursite.com/2018/09/25/The-Common-Used-Commands/index.html">
 <meta property="og:site_name" content="命由我作 福自己求">
-<meta property="og:description" content="以Python-3.8.7为例，介绍其在usr&#x2F;local&#x2F;下的安装过程。">
+<meta property="og:description" content="Change all folders to 755 and all files to 64412find . -type d -exec chmod 0755 &amp;#123;&amp;#125; \;find . -type f -exec chmod 0644 &amp;#123;&amp;#125; \;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-02T02:42:46.000Z">
-<meta property="article:modified_time" content="2021-01-02T02:42:46.000Z">
+<meta property="article:published_time" content="2018-09-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2018-09-24T16:00:00.000Z">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2021/01/02/Python%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
+<link rel="canonical" href="http://yoursite.com/2018/09/25/The-Common-Used-Commands/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>python安装与配置 | 命由我作 福自己求</title>
+  <title>The-Common-Used-Commands | 命由我作 福自己求</title>
   
 
 
@@ -155,7 +155,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/02/Python%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/25/The-Common-Used-Commands/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -168,7 +168,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          python安装与配置
+          The-Common-Used-Commands
         </h1>
 
         <div class="post-meta">
@@ -178,7 +178,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-01-02 10:42:46" itemprop="dateCreated datePublished" datetime="2021-01-02T10:42:46+08:00">2021-01-02</time>
+              <time title="创建时间：2018-09-25 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-25T00:00:00+08:00">2018-09-25</time>
             </span>
 
           
@@ -192,13 +192,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>以Python-3.8.7为例，介绍其在usr/local/下的安装过程。<br><span id="more"></span></p>
-<ul>
-<li>extract Python-3.8.7 file<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xJvf tar -Jxvf Python-3.8.1.tar.xz -C /tmp/ <span class="comment">#解压到指定位置</span></span><br><span class="line"><span class="built_in">cd</span> /tmp/gcc-7.5.0/ </span><br></pre></td></tr></table></figure></li>
-<li>install Python-3.8.7<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/python3 --enable-optimizations <span class="comment">#指定安装位置</span></span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></li>
-<li>link file<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ln -s /usr/<span class="built_in">local</span>/python3/bin/python3.8 /usr/bin/python3</span><br><span class="line">$ ln -s /usr/<span class="built_in">local</span>/python3/bin/pip3.8 /usr/bin/pip3</span><br></pre></td></tr></table></figure></li>
-<li>添加库文件路径,保证gcc-7.5.0所需的库在$PATH路径的最前面<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/gcc-7/bin:/usr/<span class="built_in">local</span>/gcc-7/lib:/usr/<span class="built_in">local</span>/gcc-7/lib64:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/gcc-7/lib:/usr/<span class="built_in">local</span>/gcc-7/lib64:<span class="variable">$LD_LIBRARY_PATH</span></span><br></pre></td></tr></table></figure></li>
-<li>Done</li>
+        <ul>
+<li>Change all folders to 755 and all files to 644<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find . -type d -exec chmod 0755 &#123;&#125; \;</span><br><span class="line">find . -type f -exec chmod 0644 &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<span id="more"></span></li>
+<li>ImageMagick 生成gif<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convert -delay 0 &#96;ls -tr *.png&#96; -loop 0 animated.gif</span><br></pre></td></tr></table></figure></li>
+<li>Git查看分支图<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --decorate --oneline --simplify-by-decoration --all</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>
@@ -218,12 +216,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/09/The-implementation-of-physical-boundary-condtion-in-AMReX/" rel="prev" title="The implementation of physical boundary condition in AMReX">
-      <i class="fa fa-chevron-left"></i> The implementation of physical boundary condition in AMReX
+    <a href="/2017/11/21/WIN%E4%B8%8B%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/" rel="prev" title="WINDOWS下配置blog">
+      <i class="fa fa-chevron-left"></i> WINDOWS下配置blog
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/01/22/sed-replace-value-after-equal-symbol/" rel="next" title="sed-replace-value-after-equality-sign">
-      sed-replace-value-after-equality-sign <i class="fa fa-chevron-right"></i>
+    <a href="/2020/12/06/AMReX%E4%B8%ADAmrMesh%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96/" rel="next" title="AMReX中AmrMesh类的初始化">
+      AMReX中AmrMesh类的初始化 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
