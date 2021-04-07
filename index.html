@@ -720,7 +720,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-11 16:27:07" itemprop="dateModified" datetime="2020-09-11T16:27:07+08:00">2020-09-11</time>
+                <time title="修改时间：2021-04-07 10:13:01" itemprop="dateModified" datetime="2021-04-07T10:13:01+08:00">2021-04-07</time>
               </span>
 
           
@@ -734,16 +734,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>AmrMesh类是AMReX平台的基础功能类，用于设定实际问题的边界，计算域的初始网格，边界条件周期性等等。其默认构造函数的具体实现为<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AmrMesh::<span class="built_in">AmrMesh</span> ()</span><br><span class="line">&#123;</span><br><span class="line">    Geometry::<span class="built_in">Setup</span>();</span><br><span class="line">    <span class="keyword">int</span> max_level_in = <span class="number">-1</span>;</span><br><span class="line">    <span class="function">Vector&lt;<span class="keyword">int</span>&gt; <span class="title">n_cell_in</span><span class="params">(AMREX_SPACEDIM, <span class="number">-1</span>)</span></span>;</span><br><span class="line">    <span class="built_in">InitAmrMesh</span>(max_level_in,n_cell_in);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>其中<code>Geometry::Setup()</code>为定义在AMReX_Geometry.H中的静态函数，有三个缺省参数，这个函数会读取input文件中geometry.coord_sys, geometry.prob_lo, geometry.prob_hi, geometry.is_periodic这四个参数，用于设定计算坐标系，具体问题边界以及周期性边界条件，之后的工作由私有函数<code>InitAmrMesh(...)</code>完成。</p>
-<p>InitAmrMesh(…)的声明如下:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitAmrMesh</span> <span class="params">(<span class="keyword">int</span> max_level_in, <span class="keyword">const</span> Vector&lt;<span class="keyword">int</span>&gt;&amp; n_cell_in,</span></span></span><br><span class="line"><span class="function"><span class="params">                      Vector&lt;IntVect&gt; refrat = Vector&lt;IntVect&gt;(),</span></span></span><br><span class="line"><span class="function"><span class="params">                      <span class="keyword">const</span> RealBox* rb = <span class="literal">nullptr</span>, <span class="keyword">int</span> coord = <span class="number">-1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      <span class="keyword">const</span> <span class="keyword">int</span>* is_per = <span class="literal">nullptr</span>)</span></span>;</span><br></pre></td></tr></table></figure><br>包含四个缺省参数，其中后三个参数<code>rb, coord, is_per</code>分别对应具体问题边界，计算坐标系以及周期性边界条件，这些工作已经由<code>Geometry::Setup()</code>完成，<code>max_level_in</code>和<code>n_cell_in</code>默认值都为-1，<code>refrat</code>表示相邻层级间网格长度的比值，具有最高优先级，会覆盖掉input中的ref_ratio，在<code>InitAmrMesh(...)</code>的具体定义中，主要设定以下几个参数：</p>
-<ul>
-<li>verbose<br>是否详细输出信息，非0为详细输出</li>
-<li>max_level<br>自适应过程中网格的最大层数</li>
-<li>n_cell<br>最底层(level 0)计算域网格数目,必须为三个整数，如“8 8 8”</li>
-<li>max_grid_size<br>每个子计算域最大网格数，默认值为128(2D) 和 32(3D)</li>
-<li>blocking_factor<br>网格粗化参数，必须确保计算域n_cell和max_grid_size都能被blocking_factor整除，默认值为8 8 8<br>-ref_ratio<br>相邻层网格单元长度比值，默认为2 2 2<br>-n_error_buffer<br>标记网格过程中(加密前)缓冲区大小，越大则标记的网格距离coarse/fine边界越远，默认为1 1 1<br>-n_proper<br>与网格自适应过程中coarse level box能否恰当覆盖fine level box有关，具体意义不明，默认1<br>-grid_eff<br>与fine level box 大小有关，越大fine level box 覆盖区域越小，同时box个数越多，默认0.7<br>-refine_grid_layout<br>若进程数大于本层boxArray数目(Ngrids &lt; Nprocs)，继续分割boxArray，直到进程数小于boxArray数目(Ngrids &gt; Nprocs),默认true<br>-check_input<br>输入检查，默认true</li>
-</ul>
-
+          <p>AmrMesh类是AMReX平台的基础功能类，用于设定实际问题的边界，计算域的初始网格，边界条件周期性等等。<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/08/AMReX%E4%B8%ADAmrMesh%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
