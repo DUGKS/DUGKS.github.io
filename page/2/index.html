@@ -385,10 +385,18 @@
       
           <span id="more"></span>
 <p>The Boltzmann-BGK equation is</p>
-<script type="math/tex; mode=display">\frac{\partial{f}}{\partial{t}} + \vec{\xi}\cdot\frac{\partial{f}}{\partial{x}} = \frac{g-f}{\tau}</script><p>where <script type="math/tex">g</script> is the equilibrium distribution function.<br>The above equation can be written in a form of</p>
-<script type="math/tex; mode=display">\frac{df}{dt} + \frac{f}{\tau} = \frac{g}{\tau}</script><p>which is a <a target="_blank" rel="noopener" href="https://www.sfu.ca/math-coursenotes/Math%20158%20Course%20Notes/sec_first_order_homogeneous_linear.html">non-homogeneous linear differential equation of first order</a>.<br>The solution to the <strong>corresponding homogeneous equation</strong> is</p>
-<script type="math/tex; mode=display">f = f_0e^{-\frac{t-t_0}{\tau}}</script><p>where <script type="math/tex">t_0</script> is the initial moment.</p>
+<script type="math/tex; mode=display">\frac{\partial{f}}{\partial{t}} + \vec{\xi}\cdot\frac{\partial{f}}{\partial{\vec{x}}} + \vec{a}\cdot\frac{\partial{f}}{\partial{\vec{\xi}}} = \frac{g-f}{\tau}$$ (1)
+where $$g$$ is the equilibrium distribution function.
 
+The above equation can be written in a form of
+$$\frac{df}{dt} + \frac{f}{\tau} = \frac{g}{\tau}$$ (2)
+which is a [non-homogeneous linear differential equation of first order](https://www.sfu.ca/math-coursenotes/Math%20158%20Course%20Notes/sec_first_order_homogeneous_linear.html). 
+The succinct solution to the corresponding equation is
+$$f(t) = h(t)e^{-\frac{t-t_0}{\tau}}$$ (3)
+where $$t_0$$ is the initial moment.
+By inserting the above equation into Eq. (2), we have
+$$h'(t) = \frac{g}{\tau}e^{\frac{t-t_0}{\tau}}</script><p>Hence</p>
+<script type="math/tex; mode=display">h(t) = \int_{t_0}^{t_n}\frac{g}{\tau}e^{\frac{t-t_0}{\tau}} + f_0</script>
       
     </div>
 
